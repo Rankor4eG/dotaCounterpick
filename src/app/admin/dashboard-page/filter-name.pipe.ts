@@ -12,8 +12,10 @@ export class FilterNamePipe implements PipeTransform {
       let y = b.name.toLowerCase();
       if(x < y) {
         return -1
-    } else {
+    } else if(x>y) {
       return 1;
+    } else {
+      return 0
     }
 
     });

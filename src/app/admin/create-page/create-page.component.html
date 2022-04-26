@@ -1,7 +1,9 @@
 <form class="card border-none" [formGroup]="form" (ngSubmit)="submit()">
   <h1>Create new Heroes</h1>
 
-  <div class="form-control">
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('name')?.touched && form.get('name')?.invalid}"
+  >
     <label for="name">*To Name:</label>
     <input id="name" type="text" formControlName="name">
     <div
@@ -15,7 +17,9 @@
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('icon')?.touched && form.get('icon')?.invalid}"
+  >
     <label for="icon">*To Icon:</label>
     <input id="icon" type="text" formControlName="icon">
     <div
@@ -57,7 +61,9 @@
   </div>
 
 
-  <div class="form-control">
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('descriptionHero')?.touched && form.get('descriptionHero')?.invalid}"
+  >
     <label for="descriptionHero">*Description Hero:</label>
     <input id="descriptionHero" type="text" formControlName="descriptionHero">
     <div
