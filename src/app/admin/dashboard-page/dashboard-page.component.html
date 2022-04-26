@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="form-control">
+    <input type="text" placeholder="&nbsp;Search post..." [(ngModel)]="searchStr">
+  </div>
+  <table *ngIf="heroes.length; else loading">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hero of (heroes | search: searchStr | filterName ); let idx = index">
+      <td>{{idx + 1}}</td>
+      <td><b>{{hero.name }}</b></td>
+      <td><img src="{{hero.icon}}" alt="{{hero.name}}"></td>
+      <td>
+        <p class="time">{{hero.date | date: 'HH:mm'}}</p>
+        <p>{{hero.date | date: 'dd.MM.yyyy'}}</p>
+      </td>
+      <td>
+        <button
+          class="btn btn-dark open"
+          [routerLink]="['/admin','hero', hero.id, 'edit']"
+        >
+          Open
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="remove(hero.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--<ul *ngFor="let itemArr of itemsArr | filterName: searchStr">-->
+<!--  <li>{{itemArr}}</li>-->
+<!--</ul>-->
+
+<ng-template #loading>
+  <app-preloading></app-preloading>
+</ng-template>
+

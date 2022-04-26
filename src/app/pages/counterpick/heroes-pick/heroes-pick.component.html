@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <h1>Heroes Of DOTA 2</h1>
+
+  </div>
+  <div class="cards" >
+    <div class="cardHero" *ngFor="let nHero of heroesDataService.newHeroesData"
+    >
+        <img
+          [routerLink]="['/counterpick', nHero.id]"
+          src="{{nHero.icon}}" alt="{{nHero.name}}"
+        >
+        <p [appHeroesCard]="'bold'" color="blueviolet" style="text-align: center">{{nHero.name}}</p>
+    </div>
+  </div>
+</div>
+
+<hr style="margin: 2rem auto">
+
+<app-post-hero
+  (onAdd)="updateHereos($event)">
+</app-post-hero>
+
+
+

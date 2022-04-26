@@ -1,0 +1,92 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <label for="name">*To Name:</label>
+      <input id="name" type="text" formControlName="name">
+      <div
+        class="validation"
+        *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+      >
+        <small
+          *ngIf="form.get('name')?.hasError('required')">
+          The field must not be empty
+        </small>
+      </div>
+    </div>
+
+
+    <div class="form-control">
+      <label for="icon">*To Icon:</label>
+      <input id="icon" type="text" formControlName="icon">
+      <div
+        class="validation"
+        *ngIf="form.get('icon')?.invalid && form.get('icon')?.touched"
+      >
+        <small
+          *ngIf="form.get('icon')?.hasError('required')">
+          The field must not be empty
+        </small>
+      </div>
+    </div>
+
+    <div class="heroSkills">
+      <div class="form-control" formGroupName="heroSkills">
+        <label for="firstSkill">FirstSkill:</label>
+
+        <input id="firstSkill" type="text" name="firstSkill" formControlName="firstSkill">
+
+      </div>
+      <div class="form-control" formGroupName="heroSkills">
+        <label for="secondSkill">SecondSkill:</label>
+
+        <input id="secondSkill" type="text" name="secondSkill" formControlName="secondSkill">
+
+      </div>
+      <div class="form-control" formGroupName="heroSkills">
+        <label for="thirdSkill">ThirdSkill:</label>
+
+        <input id="thirdSkill" type="text" name="thirdSkill" formControlName="thirdSkill">
+
+      </div>
+      <div class="form-control" formGroupName="heroSkills">
+        <label for="ultimate">Ultimate:</label>
+
+        <input id="ultimate" type="text" name="ultimate" formControlName="ultimate">
+
+      </div>
+    </div>
+
+
+    <div class="form-control">
+      <label for="descriptionHero">*Description Hero:</label>
+      <input id="descriptionHero" type="text" formControlName="descriptionHero">
+      <div
+        class="validation"
+        *ngIf="form.get('descriptionHero')?.invalid && form.get('descriptionHero')?.touched"
+      >
+        <small
+          *ngIf="form.get('descriptionHero')?.hasError('required')">
+          The field must not be empty
+        </small>
+      </div>
+    </div>
+
+    <div class="buttonEdit">
+      <button
+        type="submit"
+        class="btn btn-dark"
+      >Changed</button>
+      <button
+        type="button"
+        class="btn btn-white"
+        (click)="onSubmit()"
+      >All Heroes</button>
+    </div>
+  </form>
+
+
+</div>
+
+<ng-template #loading>
+  <app-preloading></app-preloading>
+</ng-template>

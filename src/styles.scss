@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Calibri');
+
+:root {
+  --dark-color: #181616;
+  --light-color: #fafafa;
+  --danger-color: #e0283a;
+  --success-color: #1ebe44;
+  --gray-color: #858383;
+  --white-color: #fff;
+}
+
+*, html, body, div, p, ul, ol, li,
+span, small, h1, h2, h3, h4, h5, h6,
+a, button, input, label, form{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Calibri', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--white-color);
+  color: var(--dark-color);
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--dark-color);
+  &:hover {
+    color: var(--light-color);
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+li a {
+  color: var(--dark-color);
+  font-weight: 700;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: #ccc 1px dotted;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+label {
+  margin-left: 0.5rem;
+}
+
+button {
+  max-width: 8rem;
+}
+
+.btn{
+  background: var(--light-color);
+  color: #333;
+  max-width: 150px;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--light-color);
+    color: #111;
+  }
+}
+
+.alert {
+  padding: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.btn-light,
+.alert-light {
+  background: var(--light-color);
+  color: #333;
+}
+
+.btn-dark,
+.alert-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.btn-danger,
+.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.btn-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
+
+.btn-white,
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
+
+.btn:hover,
+.alert:hover {
+  opacity: 0.8;
+}
+
+.form-control {
+  display: block;
+  color: #888;
+  margin-bottom: .8rem;
+
+  &.invalid {
+    color: var(--danger-color);
+    input {
+      border-color: var(--danger-color);
+    }
+  }
+
+  .validation {
+    color: var(--danger-color);
+  }
+}
+
+.border-none {
+  border: none;
+}
+
+input,
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+input,
+input[type='submit'],
+button {
+  font: inherit;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+
+  &.main {
+    justify-content: center;
+    border-bottom: 1px solid var(--dark-color);
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li.active a {
+    color: var(--dark-color);
+    font-weight: bold;
+    cursor: default;
+  }
+
+  a {
+    color: var(--dark-color);
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+
+    &:hover {
+      color: var(--light-color);
+    }
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  background: var(--light-color);
+}

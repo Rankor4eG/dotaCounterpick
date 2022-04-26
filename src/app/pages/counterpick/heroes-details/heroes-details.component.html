@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="subTitle">
+    <h2><b>Hero name: </b>{{heroesData.name | uppercase}}</h2>
+    <button class="btn btn-dark" (click)="goToMainPage()">to main page</button>
+  </div>
+  <img src="{{heroesData.icon}}" alt="" style="margin: 1rem 0; width: 200px; height: auto">
+  <div class="heroSkills">
+    <h2>
+      <b>
+        {{heroesData.name | titlecase}} skill:
+      </b>
+    </h2>
+    <ul class="skills">
+      <li>FirstSkill: <b>{{heroesData.heroSkills.firstSkill | titlecase}}</b></li>
+      <li>SecondSkill: <b>{{heroesData.heroSkills.secondSkill | titlecase}}</b></li>
+      <li>ThirdSkill: <b>{{heroesData.heroSkills.thirdSkill | titlecase}}</b></li>
+      <li>Ultimate: <b>{{heroesData.heroSkills.ultimate | titlecase}}</b></li>
+    </ul>
+  </div>
+    <p class="descriptionHero">
+      Description Hero:
+        <b>{{heroesData.descriptionHero}}</b>
+    </p>
+
+  <div>
+    <h3 style="padding-bottom: 2rem">
+      <i>
+      List of Counterpick Heroes:
+      </i>
+    </h3>
+    <div *ngFor="let counterHero of heroesData.counterPicks" class="cards">
+      <div class="card">
+        <img src="{{counterHero}}" alt="{{heroesData.name}}" style="width: 200px; height: auto; margin: auto 0.2rem" >
+        <p [appHeroesCard]="'bold'" color="blueviolet" style="text-align: center">{{heroesData.name}}</p>
+      </div>
+    </div>
+    <img src="{{heroesData.icon}}" alt="" style="width: 200px; height:100%; margin: auto 0.2rem">
+  </div>
+</div>

@@ -1,0 +1,14 @@
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  .heroSkills{
+    max-width: 400px;
+    input {
+      height: 2rem;
+    }
+  }
+  .buttonEdit{
+    display: flex;
+    justify-content: space-between;
+  }
+}
