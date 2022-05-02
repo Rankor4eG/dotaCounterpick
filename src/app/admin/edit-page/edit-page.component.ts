@@ -4,6 +4,7 @@ import {HeroesService} from "../../shared/services/heroes.service";
 import {switchMap} from "rxjs";
 import {INewHeroesData} from "../../services/heroes-data.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AlertService} from "../shared/services/alert.service";
 
 @Component({
   selector: 'app-edit-page',
@@ -21,6 +22,7 @@ export class EditPageComponent implements OnInit {
     private heroesService: HeroesService,
     private fb: FormBuilder,
     private router: Router,
+    public alert: AlertService
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
@@ -77,11 +79,9 @@ export class EditPageComponent implements OnInit {
     }).subscribe(() => {
       this.submitted =false
     })
+    this.alert.warning('Post Changed!')
   }
 
-  buttonEdit(){
-
-  }
 
   onSubmit(){
     this.router.navigate(['/admin', 'dashboard']).then(()=>{})

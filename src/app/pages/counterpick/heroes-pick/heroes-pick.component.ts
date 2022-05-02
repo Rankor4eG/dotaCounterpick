@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HeroesDataService, INewHeroesData} from "../../../services/heroes-data.service";
+import {HeroesService} from "../../../shared/services/heroes.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-heroes-pick',
@@ -8,16 +10,15 @@ import {HeroesDataService, INewHeroesData} from "../../../services/heroes-data.s
 })
 export class HeroesPickComponent implements OnInit {
 
-  constructor(public heroesDataService: HeroesDataService) { }
+  heroes$: Observable<INewHeroesData[]>
 
-  // heroesData:
+  constructor(
+    private heroesService: HeroesService
+  ) { }
+
 
   ngOnInit(): void {
-  }
-
-  updateHereos(newHeroesDate: INewHeroesData){
-    console.log(newHeroesDate)
-    this.heroesDataService.newHeroesData.push(newHeroesDate)
+    this.heroes$ = this.heroesService.getAll()
   }
 
 }

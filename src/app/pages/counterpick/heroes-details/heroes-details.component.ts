@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {HeroesDataService, INewHeroesData} from "../../../services/heroes-data.service";
+import {HeroesService} from "../../../shared/services/heroes.service";
+import {Observable, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-heroes-details',
@@ -10,11 +12,11 @@ import {HeroesDataService, INewHeroesData} from "../../../services/heroes-data.s
 export class HeroesDetailsComponent implements OnInit {
 
 
-  heroesData!: INewHeroesData;
+  heroes$: Observable<INewHeroesData>;
 
 
   constructor(private route: ActivatedRoute,
-              public heroesDataService: HeroesDataService,
+              public heroesService: HeroesService,
               private router: Router
               ) {
 
@@ -23,9 +25,7 @@ export class HeroesDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-    this.heroesData = this.heroesDataService.getById(params['id'])!
-    })
+    this.heroes$ = this.route.params.pipe(switchMap((params) => this.heroesService.getById(params['id'])))
   }
 
 

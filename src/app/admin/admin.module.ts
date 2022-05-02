@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -13,7 +13,8 @@ import {SharedModule} from "../shared/modules/shared.module";
 import {AuthGuard} from "./shared/services/auth.guard";
 import { PreloadingComponent } from './dashboard-page/preloading/preloading.component';
 import { FilterNamePipe } from './dashboard-page/filter-name.pipe';
-
+import { AlertComponent } from './shared/components/alert/alert.component';
+import {AlertService} from "./shared/services/alert.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterNamePipe } from './dashboard-page/filter-name.pipe';
     CreatePageComponent,
     EditPageComponent,
     PreloadingComponent,
-    FilterNamePipe
+    FilterNamePipe,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { FilterNamePipe } from './dashboard-page/filter-name.pipe';
     SharedModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AlertService
   ]
 })
 export class AdminModule { }

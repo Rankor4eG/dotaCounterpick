@@ -9,6 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class HeroesService {
 
+
   constructor(private http: HttpClient) { }
 
   create(hero: INewHeroesData): Observable<INewHeroesData>{
@@ -20,6 +21,7 @@ export class HeroesService {
             id: response.name,
             date: new Date(hero.date)
           }
+          console.log(newHero)
           return newHero;
         })
       )
